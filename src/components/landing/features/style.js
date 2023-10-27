@@ -4,6 +4,7 @@ export const Container = styled.div`
   padding: 5rem 7rem 6rem;
   min-height: 100vh;
   position: relative;
+  margin-top: 60px;
   #lendo,
   #paragrafo {
     text-align: left;

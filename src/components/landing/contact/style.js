@@ -2,6 +2,7 @@ import styled from "styled-components";
 
 export const Container = styled.div`
   padding: 4rem 7rem;
+  margin-top: 80px;
   background: ${(props) => props.theme.Grayish};
   text-align: center;
   color: ${(props) => props.theme.White};

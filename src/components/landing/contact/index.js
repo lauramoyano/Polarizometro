@@ -1,4 +1,4 @@
-
+import React from 'react';
 import {
   Container,
   Enviar,
@@ -6,22 +6,22 @@ import {
   Formulario,
   Titulo,
 } from "./style";
-import { i18n } from "./../../../translate/i18n";
+import Header from "../header";
+
 export default function Contact() {
   return (
     <Container>
-     
-      <Titulo>{i18n.t("contact.titulo")}</Titulo>
-
+      <Header/>
+      <Titulo>Stay up-to-date with what we’re doing</Titulo>
       <Formulario action="/sucessoEmail">
         <Email
           type="text"
           required
-          placeholder={i18n.t("contact.textoBotao")}
+          placeholder="Enter your email address"
           id="email"
           className="input"
         />
-        <Enviar type="submit">{i18n.t("contact.botao")}</Enviar>
+        <Enviar>Contact Us</Enviar>
       </Formulario>
     </Container>
   );

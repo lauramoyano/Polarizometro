@@ -1,9 +1,11 @@
+import React from 'react';
 import { Container, Logo, Rota, Conjunto, Conjunto2, Rede } from "./style";
 import logo from "./../../../assets/images/favicon.icon.png";
 import facebook from "./../../../assets/images/icon-facebook.svg";
 import twitter from "./../../../assets/images/icon-twitter.svg";
 import { Link } from "react-router-dom";
-import { i18n } from "./../../../translate/i18n";
+
+
 export default function Footer() {
   return (
     <Container>
@@ -13,13 +15,11 @@ export default function Footer() {
         </Link>
 
         <Link to="/features">
-          <Rota>{i18n.t("rotas.features")}</Rota>
+          <Rota>Features</Rota>
         </Link>
 
-    
-
         <Link to="/contact">
-          <Rota>{i18n.t("rotas.contact")}</Rota>
+          <Rota>Contact</Rota>
         </Link>
       </Conjunto>
 

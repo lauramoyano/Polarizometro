@@ -2,20 +2,18 @@ import { Container, Sucesso, PerguntasCard } from "./style";
 import arrow from "./../../assets/images/icon-arrow.svg";
 import { ParagrafoPrincipal } from "./../landing/features/style";
 import { Link } from "react-router-dom";
-import { i18n } from "./../../translate/i18n";
+import PolarizationForm from '../polarizometroMeasures/e&r';
+import Sidebar from "../sidebar"
+import Topbar from "../topbar";
+
+
 export default function SucessoEmail() {
   return (
     <Container>
-      <h1>{i18n.t("sucessoEmail.titulo")}</h1>
-      <ParagrafoPrincipal>
-        {i18n.t("sucessoEmail.paragrafo")}
-      </ParagrafoPrincipal>
-      <PerguntasCard>
-        <img src={arrow} alt="bookmark" />
-        <Link to="/">
-          <Sucesso>{i18n.t("sucessoEmail.button")}</Sucesso>
-        </Link>
-      </PerguntasCard>
+      <Topbar />
+      <Sidebar />
+      <PolarizationForm/>
     </Container>
   );
 }
+

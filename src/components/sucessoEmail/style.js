@@ -1,8 +1,14 @@
 import styled from "styled-components";
 
+// En SucessoEmail
 export const Container = styled.div`
-  padding: 10rem 2rem 16rem;
-  text-align: center;
+  display: flex;
+  flex-direction: column;
+  margin-left: 200px; /* Añade margen izquierdo para dar espacio a la barra lateral */
+
+  @media (max-width: 800px) {
+    margin-left: 0; /* Restablece el margen en dispositivos móviles */
+  }
 `;
 
 export const PerguntasCard = styled.div`

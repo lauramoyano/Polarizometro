@@ -2,6 +2,7 @@ import styled from "styled-components";
 
 export const Container = styled.div`
   padding: 6rem;
+  margin-top: 80px;
   img {
     @media (max-width: 800px) {
       width: 22.4rem;

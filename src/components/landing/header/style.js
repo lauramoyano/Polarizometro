@@ -1,13 +1,15 @@
 import styled from "styled-components";
 
 export const Container = styled.nav`
-  background-color:${(props) => props.theme.Dark};
+  background-color: ${(props) => props.theme.Dark};
   display: flex;
   justify-content: center;
   top: 0;
   left: 0;
-  padding: 0.5rem;
   justify-content: space-between;
+  position: fixed; /* Agrega esta línea */
+  width: 100%; /* Opcional: Asegúrate de que el encabezado ocupe toda la anchura de la pantalla */
+  z-index: 1000; /* Opcional: Ajusta la superposición si es necesario */
 `;
 
 export const Itens = styled.div`
@@ -39,6 +41,8 @@ export const Conjunto = styled.div`
 export const Logo = styled.img`
   margin: 0.5rem;
   margin-left:1rem;
+  max-width: 100px;
+
 `;
 
 
@@ -90,8 +94,10 @@ export const MobileNav = styled.div`
     color: ${({ navToggle }) => (navToggle ? "hsl(229, 31%, 21%)" : "black")};
   }
   @media (max-width: 800px) {
-    flex: 1;
     display: flex;
-    justify-content: flex-end;
+    flex-direction: column; /* Cambia flex-direction a column */
+    align-items: center; /* Centra los elementos verticalmente */
+    padding: 1rem; /* Agrega un espacio entre los elementos */
   }
 `;
+

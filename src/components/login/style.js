@@ -3,6 +3,7 @@ export const Container = styled.div`
   display: flex;
   justify-content: center;
   flex-direction: column;
+  margin-top: 80px;
   img {
     margin-left: auto;
     margin-right: auto;

@@ -1,20 +1,13 @@
-import {
-  Container,
-  Logo,
-  Rota,
-  BotaoLogin,
-  Conjunto,
-  Itens,
-  MobileNav,
-} from "./style";
+import React, { useEffect, useState } from 'react';
+import { Container, Logo, Rota, BotaoLogin, Conjunto, Itens, MobileNav } from "./style";
 import Hamburger from "../../../assets/images/icon-hamburger.svg";
 import Close from "../../../assets/images/icon-close.svg";
 import logo from "./../../../assets/images/favicon.icon.png";
 import { Link } from "react-router-dom";
-import { useEffect, useState } from "react";
-import { i18n } from "./../../../translate/i18n";
+
 export default function Header() {
   const [navToggle, setNavToggle] = useState(false);
+
   const alternar = () => {
     setNavToggle(!navToggle);
   };
@@ -25,11 +18,12 @@ export default function Header() {
     } else {
       document.body.style.overflow = "auto";
     }
-  });
+  }, [navToggle]);
+
   return (
     <Container>
-      <Link to="/">
-      <Logo src={logo} alt="promueva" />
+       <Link to="/">
+        {!navToggle && <Logo src={logo} alt="promueva" />}
       </Link>
       <MobileNav navToggle={navToggle}>
         <button onClick={alternar}>
@@ -39,28 +33,46 @@ export default function Header() {
             </i>
           ) : (
             <i>
-              <img src={Hamburger} alt="abrir" />
+              <Logo src={Hamburger} alt="abrir" />
             </i>
           )}
         </button>
-      </MobileNav>
-      <Conjunto navToggle={navToggle}>
-        <Itens>
-          <Link to="/features">
-            <Rota>{i18n.t("rotas.features")}</Rota>
-          </Link>
-
-          <Link to="/contact">
-            <Rota>{i18n.t("rotas.contact")}</Rota>
-          </Link>
-
-          <BotaoLogin>
-            <Link to="/login">
-              <Rota>{i18n.t("rotas.login")}</Rota>
+        {navToggle && (
+          <Itens>
+            <Link to="/features">
+              <Rota>Features</Rota>
             </Link>
-          </BotaoLogin>
-        </Itens>
-      </Conjunto>
+
+            <Link to="/contact">
+              <Rota>Contact</Rota>
+            </Link>
+
+            <BotaoLogin>
+              <Link to="/login">
+                <Rota>Login</Rota>
+              </Link>
+            </BotaoLogin>
+          </Itens>
+        )}
+      </MobileNav>
+      {!navToggle && ( // Renderizar Conjunto solo cuando navToggle es falso
+        <Conjunto navToggle={navToggle}>
+         
+          <Itens>
+            <Link to="/features">
+              <Rota>Features</Rota>
+            </Link>
+            <Link to="/contact">
+              <Rota>Contact</Rota>
+            </Link>
+            <BotaoLogin>
+              <Link to="/login">
+                <Rota>Login</Rota>
+              </Link>
+            </BotaoLogin>
+          </Itens>
+        </Conjunto>
+      )}
     </Container>
   );
 }
