@@ -1,21 +1,21 @@
 import { useState } from 'react';
-import capa from './../../assets/images/illustration-features-tab-3.svg';
+import cover from './../../assets/images/illustration-features-tab-3.svg';
 import Header from '../landing/header';
 import { useNavigate } from 'react-router-dom';
-import { registerUser, loginUser } from '../../api/user.api'; // Importa las funciones de tu API
+import { registerUser, loginUser } from '../../api/user.api';
 
 import {
-  Campo,
-  Navegacao,
-  EstiloCaixa,
-  Entrar,
+  Field,
+  Navigation,
+  StyledBox,
+  SignInButton,
   Container,
-  Botao,
-  Titulo,
+  Button,
+  Title,
 } from './style';
 
 function Login() {
-  const [opcao, setOpcao] = useState('');
+  const [option, setOption] = useState('');
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [name, setName] = useState('');
@@ -40,28 +40,28 @@ function Login() {
   const handleSubmit = async (event) => {
     event.preventDefault();
 
-    if (opcao === 'criar') {
-      // Realiza el registro de usuario
+    if (option === 'create') {
+      // Perform user registration
       try {
-        const response = await registerUser({name, email, password, phone });
+        const response = await registerUser({ name, email, password, phone });
         if (response.status === 201) {
-          // Usuario registrado con éxito, puedes redirigirlo a una página de éxito o mostrar un mensaje.
-          navigate('/sucessoEmail');
+          // User registered successfully, you can redirect to a success page or show a message.
+          navigate('/successEmail');
         }
       } catch (error) {
-        console.error('Error al registrar el usuario:', error);
+        console.error('Error registering user:', error);
       }
     } else {
-      // Realiza la autenticación
+      // Perform authentication
       try {
         const response = await loginUser({ email, password });
-        console.log(response.status)
+        console.log(response.status);
         if (response != null) {
-          // Inicio de sesión exitoso, almacena el token si es necesario y redirige.
-          navigate('/sucessoEmail');
+          // Successful login, store the token if needed and redirect.
+          navigate('/successEmail');
         }
       } catch (error) {
-        console.error('Error al iniciar sesión:', error);
+        console.error('Error logging in:', error);
       }
     }
   };
@@ -69,16 +69,16 @@ function Login() {
   return (
     <Container>
       <Header />
-      <Campo>
-        <img src={capa} alt="logo" />
-        <Navegacao>
-          <Botao onClick={() => setOpcao('criar')}>Create an account</Botao>
-          <Botao onClick={() => setOpcao('login')}>Login</Botao>
-        </Navegacao>
-        <EstiloCaixa onSubmit={handleSubmit}>
-          {opcao === 'criar' ? (
-            <div className="criar-campo">
-              <Titulo> Create your account and enjoy </Titulo>
+      <Field>
+        <img src={cover} alt="logo" />
+        <Navigation>
+          <Button onClick={() => setOption('create')}>Create an account</Button>
+          <Button onClick={() => setOption('login')}>Login</Button>
+        </Navigation>
+        <StyledBox onSubmit={handleSubmit}>
+          {option === 'create' ? (
+            <div className="create-field">
+              <Title> Create your account and enjoy </Title>
               <input
                 type="name"
                 required
@@ -115,7 +115,7 @@ function Login() {
             </div>
           ) : (
             <div>
-              <Titulo> Login to your account </Titulo>
+              <Title> Login to your account </Title>
               <input
                 type="email"
                 required
@@ -132,9 +132,9 @@ function Login() {
               />
             </div>
           )}
-          <Entrar type="submit">Login</Entrar>
-        </EstiloCaixa>
-      </Campo>
+          <SignInButton type="submit">Login</SignInButton>
+        </StyledBox>
+      </Field>
     </Container>
   );
 }
