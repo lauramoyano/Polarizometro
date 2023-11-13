@@ -1,18 +1,19 @@
 import styled from 'styled-components';
 
 export const Container = styled.div`
-  background-color: ${(props) => props.theme.Dark};
-  color: ${(props) => props.theme.White};
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 0 20px;
-  height: 60px;
+background-color: ${(props) => props.theme.Dark};
+color: ${(props) => props.theme.White};
+display: flex;
+justify-content: space-between;
+align-items: center;
+padding: 0 20px;
+height: 60px; /* Mantiene la altura fija */
+z-index: 999; /* Asegura que la barra superior esté encima de la barra lateral */
 `;
 
 export const SearchBar = styled.div`
-  display: flex;
-  align-items: center;
+display: flex;
+align-items: center;
 `;
 
 export const SearchInput = styled.input`
@@ -55,3 +56,5 @@ export const MenuItem = styled.div`
     background-color: ${(props) => props.theme.Grayish};
   }
   `;
+
+  

@@ -38,11 +38,16 @@ export const Conjunto = styled.div`
   }
 `;
 
+
+
 export const Logo = styled.img`
   margin: 0.5rem;
-  margin-left:1rem;
+  margin-left: 1rem;
   max-width: 100px;
 
+  @media (max-width: 800px) {
+    max-width: 80px; // Adjust the max-width for smaller screens
+  }
 `;
 
 
@@ -90,7 +95,9 @@ export const MobileNav = styled.div`
     z-index: 100;
   }
   i {
-    font-size: 1.4rem;
+    img {
+      max-width: 20px; // Adjust the max-width for the hamburger icon
+    }
     color: ${({ navToggle }) => (navToggle ? "hsl(229, 31%, 21%)" : "black")};
   }
   @media (max-width: 800px) {
@@ -100,4 +107,5 @@ export const MobileNav = styled.div`
     padding: 1rem; /* Agrega un espacio entre los elementos */
   }
 `;
+
 
